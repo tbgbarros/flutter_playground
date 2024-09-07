@@ -22,22 +22,18 @@ abstract class Pessoa {
       'Pessoa(_nome: $_nome, _sobrenome: $_sobrenome, _email: $_email)';
 }
 
-https://bit.ly/4eee1DA
-
 class Estudante extends Pessoa {
-
   int? ra;
 
   Estudante(String nome, String sobrenome, String email, {required this.ra})
-    :super(nome: nome, sobrenome: sobrenome, email: email);
-
+      : super(nome: nome, sobrenome: sobrenome, email: email);
 }
 
 class Desenvolvedor extends Pessoa with Cantor, Construtor {
   List<String> linguagens = [];
 
-  Desenvolvedor(String nome, String sobrenome, String email, 
-    {List<String>? outrasLinguagens});
+  Desenvolvedor(String nome, String sobrenome, String email,
+      {List<String>? outrasLinguagens});
 
   void goHorse() => print('Modo Go-HORSE habilitado!');
 }
@@ -53,4 +49,19 @@ mixin Construtor {
   void construir() {
     print('Construinfo uma casa agora!!!');
   }
+}
+
+main() {
+  final dev = Desenvolvedor(
+    'Devi',
+    'Dirty Hands',
+    'dev@mobo.com',
+    outrasLinguagens: ['Kotlin', 'Go'],
+  );
+
+  dev.goHorse();
+  dev.cantar();
+  dev.construir();
+
+  print(dev.musicaFavorita);
 }
