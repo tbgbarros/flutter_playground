@@ -157,11 +157,46 @@ main() {
   }
 
   //TODO: Funções
-  exibirNumeroDaSorte('Valdelaine', limite: 200);
+  exibirNumeroDaSorte(nome: 'Carlão', limite: 5);
+
+  //TODO: Funcoes como Tipo
+  Function mediaAritmetica = (double a, double b, double c, double d) {
+    return (a + b + c + d) / 4;
+  };
+
+  Function mediaPonderada = (double a, double b, double c, double d) {
+    return ((a * 1) + (b * 3) + (c * 2) + (d * 4)) / 10;
+  };
+
+  print('Funcao media é do tipo ${mediaAritmetica.runtimeType}');
+
+  multiplyer(int x, int y) => x * y;
+
+  print(multiplyer(6, 7));
+
+  triple(int v) => multiplyer(v, 3);
+
+  final v = 9;
+  print('O triplo e $v é ${triple(v)}');
+  print('triple é do tipo ${triple.runtimeType}');
+
+  final media = (double a, double b, double c, double d,
+      Function algoritmo(double a, double b, double c, double d)) {
+    return algoritmo(a, b, c, d);
+  };
+
+  media(4, 5, 7, 9, mediaPonderada(media));
 
   //TODO: Desafio!!!!!!
 }
 
-void exibirNumeroDaSorte(String nome, {int? limite = 100}) {
-  print('$nome, seu numero da sorte é ${Random().nextInt(limite!) + 1}');
+// Funções com parametro nomeados, opcionais e posicionais.
+void exibirNumeroDaSorte({String? nome, int? limite = 100}) {
+  print(
+      '${nome ??= 'Anonimo'}, seu numero da sorte é ${Random().nextInt(limite!) + 1}');
 }
+
+
+
+
+//https://bit.ly/3MxKf17
